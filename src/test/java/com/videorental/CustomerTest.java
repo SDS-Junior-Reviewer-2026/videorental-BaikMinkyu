@@ -5,11 +5,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CustomerTest {
+    private static final String NAME = "NAME_NOT_IMPORTANT";
+    private static final String TITLE = "TITLE_NOT_IMPORTANT";
+
     Customer customer;
 
     @BeforeEach
     void setUp() {
-        customer = new Customer("NAME_NOT_IMPORTANT");
+        customer = new Customer(NAME);
     }
 
     @Test
@@ -29,7 +32,7 @@ public class CustomerTest {
     @Test
     public void testRentalDaysRented2() {
         // arrange
-        Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.REGULAR);
+        Movie movie = new Movie(TITLE, Movie.REGULAR);
         int daysRented = 2;
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
@@ -44,7 +47,7 @@ public class CustomerTest {
     @Test
     public void testRentalDaysRented3() {
         // arrange
-        Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.REGULAR);
+        Movie movie = new Movie(TITLE, Movie.REGULAR);
         int daysRented = 3;
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
@@ -59,7 +62,7 @@ public class CustomerTest {
     @Test
     public void testMoviePriceCodeNewRelease() {
         // arrange
-        Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.NEW_RELEASE);
+        Movie movie = new Movie(TITLE, Movie.NEW_RELEASE);
         int daysRented = 1;
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
@@ -74,7 +77,7 @@ public class CustomerTest {
     @Test
     public void testMoviePriceCodeChildrensRentalDaysRented4() {
         // arrange
-        Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.CHILDRENS);
+        Movie movie = new Movie(TITLE, Movie.CHILDRENS);
         int daysRented = 4;
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
@@ -89,7 +92,7 @@ public class CustomerTest {
     @Test
     public void testMoviePriceCodeChildrensRentalDaysRented3() {
         // arrange
-        Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.CHILDRENS);
+        Movie movie = new Movie(TITLE, Movie.CHILDRENS);
         int daysRented = 3;
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
@@ -104,7 +107,7 @@ public class CustomerTest {
     @Test
     public void testMoviePriceCodeNewReleaseRentalDaysRented2() {
         // arrange
-        Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.NEW_RELEASE);
+        Movie movie = new Movie(TITLE, Movie.NEW_RELEASE);
         int daysRented = 2;
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
@@ -119,9 +122,9 @@ public class CustomerTest {
     @Test
     public void testMovie3() {
         // arrange
-        Movie regularMovie = new Movie("TITLE_NOT_IMPORTANT", Movie.REGULAR);
-        Movie newReleaseMovie = new Movie("TITLE_NOT_IMPORTANT", Movie.NEW_RELEASE);
-        Movie childrensMovie = new Movie("TITLE_NOT_IMPORTANT", Movie.CHILDRENS);
+        Movie regularMovie = new Movie(TITLE, Movie.REGULAR);
+        Movie newReleaseMovie = new Movie(TITLE, Movie.NEW_RELEASE);
+        Movie childrensMovie = new Movie(TITLE, Movie.CHILDRENS);
         customer.addRental(new Rental(regularMovie, 1));
         customer.addRental(new Rental(newReleaseMovie, 4));
         customer.addRental(new Rental(childrensMovie, 4));
