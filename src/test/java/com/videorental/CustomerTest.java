@@ -118,4 +118,22 @@ public class CustomerTest {
         // assert
         Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t6.0(TITLE_NOT_IMPORTANT)\nAmount owed is 6.0\nYou earned 2 frequent renter pointers", statement);
     }
+
+    @Test
+    public void testMovie3() {
+        // arrange
+        Customer customer = new Customer("NAME_NOT_IMPORTANT");
+        Movie regularMovie = new Movie("TITLE_NOT_IMPORTANT", Movie.REGULAR);
+        Movie newReleaseMovie = new Movie("TITLE_NOT_IMPORTANT", Movie.NEW_RELEASE);
+        Movie childrensMovie = new Movie("TITLE_NOT_IMPORTANT", Movie.CHILDRENS);
+        customer.addRental(new Rental(regularMovie, 1));
+        customer.addRental(new Rental(newReleaseMovie, 4));
+        customer.addRental(new Rental(childrensMovie, 4));
+
+        // act
+        String statement = customer.statement();
+
+        // assert
+        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t2.0(TITLE_NOT_IMPORTANT)\n\t12.0(TITLE_NOT_IMPORTANT)\n\t3.0(TITLE_NOT_IMPORTANT)\nAmount owed is 17.0\nYou earned 4 frequent renter pointers", statement);
+    }
 }
