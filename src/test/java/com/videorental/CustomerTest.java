@@ -1,5 +1,13 @@
 package com.videorental;
 
-public class CustomerTest {
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
+public class CustomerTest {
+    @Test
+    public void assertThatCustomerIsNotNull() {
+        Customer customer = new Customer("NAME_NOT_IMPORTANT");
+
+        Assertions.assertNotNull(customer);
+    }
 }
