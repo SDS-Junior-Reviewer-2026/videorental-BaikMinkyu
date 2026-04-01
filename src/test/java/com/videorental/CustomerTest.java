@@ -1,21 +1,24 @@
 package com.videorental;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CustomerTest {
+    Customer customer;
+
+    @BeforeEach
+    void setUp() {
+        customer = new Customer("NAME_NOT_IMPORTANT");
+    }
+
     @Test
     public void assertThatCustomerIsNotNull() {
-        Customer customer = new Customer("NAME_NOT_IMPORTANT");
-
         Assertions.assertNotNull(customer);
     }
 
     @Test
     public void testNoRental() {
-        // arrange
-        Customer customer = new Customer("NAME_NOT_IMPORTANT");
-
         // act
         String statement = customer.statement();
 
@@ -26,7 +29,6 @@ public class CustomerTest {
     @Test
     public void testRentalDaysRented2() {
         // arrange
-        Customer customer = new Customer("NAME_NOT_IMPORTANT");
         Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.REGULAR);
         int daysRented = 2;
         Rental rental = new Rental(movie, daysRented);
@@ -42,7 +44,6 @@ public class CustomerTest {
     @Test
     public void testRentalDaysRented3() {
         // arrange
-        Customer customer = new Customer("NAME_NOT_IMPORTANT");
         Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.REGULAR);
         int daysRented = 3;
         Rental rental = new Rental(movie, daysRented);
@@ -58,7 +59,6 @@ public class CustomerTest {
     @Test
     public void testMoviePriceCodeNewRelease() {
         // arrange
-        Customer customer = new Customer("NAME_NOT_IMPORTANT");
         Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.NEW_RELEASE);
         int daysRented = 1;
         Rental rental = new Rental(movie, daysRented);
@@ -74,7 +74,6 @@ public class CustomerTest {
     @Test
     public void testMoviePriceCodeChildrensRentalDaysRented4() {
         // arrange
-        Customer customer = new Customer("NAME_NOT_IMPORTANT");
         Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.CHILDRENS);
         int daysRented = 4;
         Rental rental = new Rental(movie, daysRented);
@@ -90,7 +89,6 @@ public class CustomerTest {
     @Test
     public void testMoviePriceCodeChildrensRentalDaysRented3() {
         // arrange
-        Customer customer = new Customer("NAME_NOT_IMPORTANT");
         Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.CHILDRENS);
         int daysRented = 3;
         Rental rental = new Rental(movie, daysRented);
@@ -106,7 +104,6 @@ public class CustomerTest {
     @Test
     public void testMoviePriceCodeNewReleaseRentalDaysRented2() {
         // arrange
-        Customer customer = new Customer("NAME_NOT_IMPORTANT");
         Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.NEW_RELEASE);
         int daysRented = 2;
         Rental rental = new Rental(movie, daysRented);
@@ -122,7 +119,6 @@ public class CustomerTest {
     @Test
     public void testMovie3() {
         // arrange
-        Customer customer = new Customer("NAME_NOT_IMPORTANT");
         Movie regularMovie = new Movie("TITLE_NOT_IMPORTANT", Movie.REGULAR);
         Movie newReleaseMovie = new Movie("TITLE_NOT_IMPORTANT", Movie.NEW_RELEASE);
         Movie childrensMovie = new Movie("TITLE_NOT_IMPORTANT", Movie.CHILDRENS);
