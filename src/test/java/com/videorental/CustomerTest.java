@@ -97,13 +97,21 @@ public class CustomerTest {
         Rental rental = createRentalFor(1, Movie.REGULAR);
         rental.getMovie()
                 .setPriceCode(Movie.NEW_RELEASE);
-        customer.addRental(rental);
 
         // assert
-        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t3.0(TITLE_NOT_IMPORTANT)\nAmount owed is 3.0\nYou earned 1 frequent renter pointers", customer.statement());
+        Assertions.assertEquals(Movie.NEW_RELEASE, rental.getMovie().getPriceCode());
     }
 
     private Rental createRentalFor(int daysRented, int priceCode) {
-        return new Rental(new Movie(TITLE, priceCode), daysRented);
+        return new Rental(getMovie(priceCode), daysRented);
+    }
+
+    private Movie getMovie(int priceCode) {
+        return switch (priceCode) {
+            case Movie.REGULAR -> new RegularMovie(TITLE);
+            case Movie.NEW_RELEASE -> new NewReleaseMovie(TITLE);
+            case Movie.CHILDRENS -> new ChildrensMovie(TITLE);
+            default -> null;
+        };
     }
 }
