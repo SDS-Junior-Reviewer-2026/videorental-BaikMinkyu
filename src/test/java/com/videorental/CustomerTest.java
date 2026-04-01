@@ -22,11 +22,8 @@ public class CustomerTest {
 
     @Test
     public void testNoRental() {
-        // act
-        String statement = customer.statement();
-
         // assert
-        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\nAmount owed is 0.0\nYou earned 0 frequent renter pointers", statement);
+        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\nAmount owed is 0.0\nYou earned 0 frequent renter pointers", customer.statement());
     }
 
     @Test
@@ -37,11 +34,8 @@ public class CustomerTest {
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
 
-        // act
-        String statement = customer.statement();
-
         // assert
-        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t2.0(TITLE_NOT_IMPORTANT)\nAmount owed is 2.0\nYou earned 1 frequent renter pointers", statement);
+        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t2.0(TITLE_NOT_IMPORTANT)\nAmount owed is 2.0\nYou earned 1 frequent renter pointers", customer.statement());
     }
 
     @Test
@@ -52,11 +46,8 @@ public class CustomerTest {
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
 
-        // act
-        String statement = customer.statement();
-
         // assert
-        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t3.5(TITLE_NOT_IMPORTANT)\nAmount owed is 3.5\nYou earned 1 frequent renter pointers", statement);
+        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t3.5(TITLE_NOT_IMPORTANT)\nAmount owed is 3.5\nYou earned 1 frequent renter pointers", customer.statement());
     }
 
     @Test
@@ -67,11 +58,8 @@ public class CustomerTest {
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
 
-        // act
-        String statement = customer.statement();
-
         // assert
-        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t3.0(TITLE_NOT_IMPORTANT)\nAmount owed is 3.0\nYou earned 1 frequent renter pointers", statement);
+        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t3.0(TITLE_NOT_IMPORTANT)\nAmount owed is 3.0\nYou earned 1 frequent renter pointers", customer.statement());
     }
 
     @Test
@@ -82,11 +70,8 @@ public class CustomerTest {
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
 
-        // act
-        String statement = customer.statement();
-
         // assert
-        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t3.0(TITLE_NOT_IMPORTANT)\nAmount owed is 3.0\nYou earned 1 frequent renter pointers", statement);
+        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t3.0(TITLE_NOT_IMPORTANT)\nAmount owed is 3.0\nYou earned 1 frequent renter pointers", customer.statement());
     }
 
     @Test
@@ -97,11 +82,8 @@ public class CustomerTest {
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
 
-        // act
-        String statement = customer.statement();
-
         // assert
-        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t1.5(TITLE_NOT_IMPORTANT)\nAmount owed is 1.5\nYou earned 1 frequent renter pointers", statement);
+        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t1.5(TITLE_NOT_IMPORTANT)\nAmount owed is 1.5\nYou earned 1 frequent renter pointers", customer.statement());
     }
 
     @Test
@@ -112,11 +94,8 @@ public class CustomerTest {
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
 
-        // act
-        String statement = customer.statement();
-
         // assert
-        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t6.0(TITLE_NOT_IMPORTANT)\nAmount owed is 6.0\nYou earned 2 frequent renter pointers", statement);
+        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t6.0(TITLE_NOT_IMPORTANT)\nAmount owed is 6.0\nYou earned 2 frequent renter pointers", customer.statement());
     }
 
     @Test
@@ -129,10 +108,7 @@ public class CustomerTest {
         customer.addRental(new Rental(newReleaseMovie, 4));
         customer.addRental(new Rental(childrensMovie, 4));
 
-        // act
-        String statement = customer.statement();
-
         // assert
-        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t2.0(TITLE_NOT_IMPORTANT)\n\t12.0(TITLE_NOT_IMPORTANT)\n\t3.0(TITLE_NOT_IMPORTANT)\nAmount owed is 17.0\nYou earned 4 frequent renter pointers", statement);
+        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t2.0(TITLE_NOT_IMPORTANT)\n\t12.0(TITLE_NOT_IMPORTANT)\n\t3.0(TITLE_NOT_IMPORTANT)\nAmount owed is 17.0\nYou earned 4 frequent renter pointers", customer.statement());
     }
 }
