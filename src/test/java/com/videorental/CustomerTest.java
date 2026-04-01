@@ -12,7 +12,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void assertThatStatementIsEqual() {
+    public void testNoRental() {
         // arrange
         Customer customer = new Customer("NAME_NOT_IMPORTANT");
 
@@ -21,5 +21,21 @@ public class CustomerTest {
 
         // assert
         Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\nAmount owed is 0.0\nYou earned 0 frequent renter pointers", statement);
+    }
+
+    @Test
+    public void testRentalDaysRented2() {
+        // arrange
+        Customer customer = new Customer("NAME_NOT_IMPORTANT");
+        Movie movie = new Movie("TITLE_NOT_IMPORTANT", Movie.REGULAR);
+        int daysRented = 2;
+        Rental rental = new Rental(movie, daysRented);
+        customer.addRental(rental);
+
+        // act
+        String statement = customer.statement();
+
+        // assert
+        Assertions.assertEquals("Rental Record for NAME_NOT_IMPORTANT\n\t2.0(TITLE_NOT_IMPORTANT)\nAmount owed is 2.0\nYou earned 1 frequent renter pointers", statement);
     }
 }
