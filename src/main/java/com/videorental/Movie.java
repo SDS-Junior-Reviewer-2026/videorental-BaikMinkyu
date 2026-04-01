@@ -1,11 +1,11 @@
 package com.videorental;
 
-public class Movie {
+public abstract class Movie {
 	public static final int CHILDRENS = 2;
 	public static final int REGULAR = 0;
 	public static final int NEW_RELEASE = 1;
 	
-	private String title;
+	private final String title;
 	private int priceCode;
 
 	public Movie(String title, int priceCode) {
@@ -24,4 +24,8 @@ public class Movie {
 	public String getTitle() {
 		return title;
 	}
+
+	public abstract double getChargeFor(int daysRented);
+
+	public abstract int getFrequentRenterPointsFor(int daysRented);
 }
